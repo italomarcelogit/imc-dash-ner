@@ -1,3 +1,4 @@
 spacy
 dash
 dash-bootstrap-components
+gunicorn
