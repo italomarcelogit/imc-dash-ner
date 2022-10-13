@@ -3,13 +3,18 @@ from dash import html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Output, Input
 import spacy
+import spacy.cli
 from spacy.displacy.render import DEFAULT_LABEL_COLORS
 DEFAULT_LABEL_COLORS['PER'] = '#aa9cfc'
 DEFAULT_LABEL_COLORS['MISC'] = '#9cc9cc'
 
 text = '''O ministro da Economia, Paulo Guedes, participou de cinco encontros em seu primeiro dia de agenda nas Reuniões Anuais do Fundo Monetário Internacional e dos Conselhos de Governadores do Grupo Banco Mundial (IMF World Bank Annual Meetings), nesta terça-feira (11/10), em Washington, Estados Unidos.'''
-nlp = spacy.load('en_core_web_sm')
+
+spacy.cli.download('en_core_web_sm')
 # python -m spacy download en_core_web_sm
+nlp = spacy.load('en_core_web_sm')
+
+spacy.cli.download('pt_core_news_md')
 # python -m spacy download pt_core_news_md
 nlp_pt = spacy.load('pt_core_news_md')
 
